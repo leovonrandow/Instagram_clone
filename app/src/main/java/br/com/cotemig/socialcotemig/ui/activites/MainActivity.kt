@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         getFeed()
     }
 
@@ -24,13 +23,21 @@ class MainActivity : AppCompatActivity() {
 
         var s = RetrofitInitializer().serviceFeed()
         var call = s.getFeed()
+
         call.enqueue(object : retrofit2.Callback<List<Post>> {
+
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
-                showFeed(response.body()!!)
+                if (response.code() == 200) {
+
+                    response.body()?.let {
+                        showFeed(it)
+                    }
+
+                }
             }
 
             override fun onFailure(call: Call<List<Post>>, t: Throwable) {
-                Toast.makeText(this@MainActivity, "ops", Toast.LENGTH_LONG).show();
+                Toast.makeText(this@MainActivity, "Ops", Toast.LENGTH_LONG).show()
             }
         })
 
@@ -44,4 +51,5 @@ class MainActivity : AppCompatActivity() {
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
     }
+
 }

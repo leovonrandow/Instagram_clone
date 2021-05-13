@@ -42,6 +42,7 @@ dependencies {
     // adicionando recyclerview no projeto
     implementation "androidx.recyclerview:recyclerview:1.1.0"
 
+    // adicionando Coil para download de imagens no ImageView
     implementation 'io.coil-kt:coil:1.2.1'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
