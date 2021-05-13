@@ -4,10 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.cotemig.socialcotemig.R
 import br.com.cotemig.socialcotemig.models.Post
+import coil.ImageLoader
+import coil.load
+import coil.request.ImageRequest
 
 class FeedAdapter(var context: Context, var list: List<Post>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -18,7 +22,7 @@ class FeedAdapter(var context: Context, var list: List<Post>) :
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as FeedHolder).bind(list[position])
+        (holder as FeedHolder).bind(context, list[position])
     }
 
     override fun getItemCount(): Int {
@@ -27,10 +31,13 @@ class FeedAdapter(var context: Context, var list: List<Post>) :
 
     class FeedHolder(var view: View) : RecyclerView.ViewHolder(view) {
 
-        fun bind(post: Post) {
+        fun bind(context: Context, post: Post) {
 
             var username = view.findViewById<TextView>(R.id.username)
             username.text = post.user
+
+            var image = view.findViewById<ImageView>(R.id.postImage)
+            image.load(post.image)
 
         }
 

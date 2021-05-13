@@ -2,6 +2,7 @@ package br.com.cotemig.socialcotemig.ui.activites
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.cotemig.socialcotemig.R
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<Post>>, t: Throwable) {
-                TODO("Not yet implemented")
+                Toast.makeText(this@MainActivity, "ops", Toast.LENGTH_LONG).show();
             }
         })
 
