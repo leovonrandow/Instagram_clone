@@ -12,10 +12,10 @@ implementation 'io.coil-kt:coil:1.2.1'
 
 Documentação do Coil
 ```
-https://github.com/coil-kt/coil
+<a href="https://github.com/coil-kt/coil">https://github.com/coil-kt/coil</a>
 ```
 
 Mais sobre Coil
 ```
-https://medium.com/@gilsonjuniorpro/coil-loading-images-from-kotlin-like-a-boss-e47568220704
+<a href="https://medium.com/@gilsonjuniorpro/coil-loading-images-from-kotlin-like-a-boss-e47568220704">https://medium.com/@gilsonjuniorpro/coil-loading-images-from-kotlin-like-a-boss-e47568220704</a>
 ```
