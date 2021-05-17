@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="17dp">
 
     <ImageView
         android:id="@+id/avatar"
@@ -84,5 +85,27 @@
         android:layout_height="246dp"
         android:layout_below="@id/description"
         android:layout_marginTop="16dp" />
+
+    <ImageButton
+        android:id="@+id/liked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gallery"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/transparent"
+        android:src="@drawable/liked" />
+
+    <TextView
+        android:id="@+id/likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gallery"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="17dp"
+        android:layout_toRightOf="@id/liked"
+        android:fontFamily="@font/sourcesansproregular"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 
 </RelativeLayout>

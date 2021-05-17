@@ -61,6 +61,10 @@ class FeedAdapter(var context: Context, var list: List<Post>) :
             var snapHelper = PagerSnapHelper()
             snapHelper.attachToRecyclerView(gallery)
 
+            var likes = view.findViewById<TextView>(R.id.likes)
+            likes.text = post.likes.size.toString()
+
+
         }
 
     }
