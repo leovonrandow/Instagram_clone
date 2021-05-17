@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/direct"
-        android:layout_marginTop="28dp" />
+        android:layout_marginTop="28dp"
+        tools:listitem="@layout/item_feed"/>
 
 </RelativeLayout>

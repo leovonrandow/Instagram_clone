@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import br.com.cotemig.socialcotemig.R
 import br.com.cotemig.socialcotemig.models.Post
@@ -21,7 +23,7 @@ class FeedAdapter(var context: Context, var list: List<Post>) :
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as PostHolder).bind(list[position])
+        (holder as PostHolder).bind(context, list[position])
     }
 
     override fun getItemCount(): Int {
@@ -30,7 +32,7 @@ class FeedAdapter(var context: Context, var list: List<Post>) :
 
     class PostHolder(var view: View) : RecyclerView.ViewHolder(view) {
 
-        fun bind(post: Post) {
+        fun bind(context: Context, post: Post) {
 
             var username = view.findViewById<TextView>(R.id.username)
             username.text = post.user
@@ -49,12 +51,13 @@ class FeedAdapter(var context: Context, var list: List<Post>) :
                 transformations(RoundedCornersTransformation(50f))
             }
 
-            var postImage = view.findViewById<ImageView>(R.id.postImage)
-            // esse método load só existe quando utilizamos o coil
-            // ele recebe a url da imagem para fazer o download
-            postImage.load(post.image)
+            var gallery = view.findViewById<RecyclerView>(R.id.gallery)
+            gallery.adapter = GalleryAdapter(context, post.gallery)
+            gallery.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-//            Glide.with(context).load(post.image).into(postImage)
+            var snapHelper = PagerSnapHelper()
+            snapHelper.attachToRecyclerView(gallery)
 
         }
 
