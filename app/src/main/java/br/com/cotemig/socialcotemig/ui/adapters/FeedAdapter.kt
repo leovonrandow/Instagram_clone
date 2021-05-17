@@ -56,6 +56,8 @@ class FeedAdapter(var context: Context, var list: List<Post>) :
             gallery.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
+            gallery.onFlingListener = null
+
             var snapHelper = PagerSnapHelper()
             snapHelper.attachToRecyclerView(gallery)
 
