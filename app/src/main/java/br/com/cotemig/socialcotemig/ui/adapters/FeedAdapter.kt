@@ -48,7 +48,7 @@ class FeedAdapter(var context: Context, var list: List<Post>) :
 
             var avatar = view.findViewById<ImageView>(R.id.avatar)
             avatar.load(post.avatar) {
-                transformations(RoundedCornersTransformation(50f))
+                transformations(RoundedCornersTransformation(80f))
             }
 
             var gallery = view.findViewById<RecyclerView>(R.id.gallery)
